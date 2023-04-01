@@ -1,10 +1,9 @@
 ># ansible Tutorials for Beginner
 
-**Note** ´´´ This code is set to run in us-east-2
+**Note:** ´This code is set to run in us-east-2
 Therefore, if you want to run this in different
 region make sure to get the appropriate 
-Ami_id as well as update all others parameters.
-´´´
+Ami_id as well as update all others parameters.´
 
 >## Prerequisite
 
