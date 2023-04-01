@@ -2,4 +2,5 @@
 *.ini
 *.hcl
 *.backup
-*.state
+*.tfstate
+.gitignore
