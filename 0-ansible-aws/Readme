@@ -1,15 +1,20 @@
-# ansible Tutorials for Beginner
+># ansible Tutorials for Beginner
 
-## Prerequisite
+>## Prerequisite
 
-MAke sure these tools are installed and configure according to your OS system.
+Make sure these tools are installed and configure according to your OS system.
 
 * Terraform 
 * Ansible 
 * awscli (install and configure)
 
-### step 1
+>### step 1
 
-After clone the repo run `cd <repo>` and the provision your infrastructure using terraform by running the following:
+After clone the repo run 
 
-    `terra.sh`
+* `cd maelkloud` 
+
+>### step 2
+To provision your infrastructure using terraform this command:
+
+* `cd 0-ansible-aws; terra.sh`
