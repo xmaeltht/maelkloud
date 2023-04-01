@@ -18,3 +18,8 @@ After clone the repo run
 To provision your infrastructure using terraform this command:
 
 * `cd 0-ansible-aws; terra.sh`
+
+>### step 3
+To cleanup your infrastructure
+
+* `terraform destroy -auto-approve`
