@@ -1,6 +1,0 @@
-.terra*
-*.ini
-*.hcl
-*.backup
-*.tfstate
-.gitignore
