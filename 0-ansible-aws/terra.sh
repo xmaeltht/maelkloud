@@ -10,3 +10,5 @@ terraform apply -auto-approve
 ansible all -i ansible_inventory.ini -m ping
 
 ansible all -i ansible_inventory.ini -m command -a "uptime"
+
+ansible all -i ansible_inventory.ini -m command -a "whoami"

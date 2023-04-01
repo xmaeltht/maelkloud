@@ -1,0 +1,15 @@
+---
+- name: Deploy Apache Server
+  hosts: my-ansible-instances-1
+  become: yes
+  tasks:
+    - name: Apache
+      ansible.builtin.yum:
+        name: httpd
+        state: present
+
+    - name: enable Apache
+      ansible.builtin.systemd:
+        name: httpd
+        state: started
+        enabled: yes
