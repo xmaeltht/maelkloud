@@ -8,3 +8,4 @@ terraform apply -auto-approve
 # This is used to check the connection between ansible and the host
 
 ansible all -i ansible_inventory.ini -m ping
+ansible-playbook -i ansible_inventory.ini ansible-http.yml
