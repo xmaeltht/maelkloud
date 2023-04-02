@@ -1,15 +1,30 @@
 ---
 - name: Deploy Apache Server
-  hosts: my-ansible-instances-1
+  hosts: group_a
   become: yes
   tasks:
-    - name: Apache
+    - name: Install Apache
       ansible.builtin.yum:
         name: httpd
         state: present
 
-    - name: enable Apache
+    - name: Enable Apache
       ansible.builtin.systemd:
         name: httpd
+        state: started
+        enabled: yes
+
+- name: Deploy nginx Server
+  hosts: group_b
+  become: yes
+  tasks:
+    - name: Install Nginx
+      ansible.builtin.yum:
+        name: nginx
+        state: present
+
+    - name: Enable Nginx
+      ansible.builtin.systemd:
+        name: nginx
         state: started
         enabled: yes

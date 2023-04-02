@@ -1,5 +1,6 @@
 .terraform.lock.hcl
 .terraform/
 ansible_inventory.ini
+ansible.cfg
 terraform.tfstate
 terraform.tfstate.backup
