@@ -1,6 +1,6 @@
 ---
 - name: Deploy Apache Server
-  hosts: my-ansible-instances-1
+  hosts: group_a
   become: yes
   tasks:
     - name: Apache
