@@ -1,6 +1,6 @@
 # Create a VPC with a single public subnet and a single private subnet
 resource "aws_vpc" "ansible" {
-  cidr_block = "10.10.0.0/16"
+  cidr_block = var.vpc_cidr_block
   enable_dns_hostnames = true
   enable_dns_support = true
 
@@ -16,7 +16,7 @@ resource "aws_internet_gateway" "ansible" {
 
 # Create a public subnet in the VPC
 resource "aws_subnet" "ansible_subnet"{
-    cidr_block = "10.10.1.0/24"
+    cidr_block = var.public_subnet_cidr_block
     vpc_id     = aws_vpc.ansible.id
     map_public_ip_on_launch = true
 
@@ -49,6 +49,20 @@ resource "aws_security_group" "ssh" {
     from_port = 22
     to_port = 22
     protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port = 80
+    to_port = 80
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+    egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
