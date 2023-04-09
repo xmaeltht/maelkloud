@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random Images</title>
+</head>
+<body>
+	<h1>Random Images</h1>
+	<img id="image" src="">
+	<button onclick="changeImage()">Change Image</button>
+
+	<script>
+		function changeImage() {
+			var images = [
+				"images/1.png",
+				"images/2.png",
+				"images/3.png",
+				"images/4.png",
+				"images/mk.webp"
+			];
+			var randomIndex = Math.floor(Math.random() * images.length);
+			var randomImage = images[randomIndex];
+			document.getElementById("image").src = randomImage;
+		}
+	</script>
+</body>
+</html>
