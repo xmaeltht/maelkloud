@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    image: mkapp:v1
+    ports:
+      - "80:90"
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/mydb
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=mydb
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
