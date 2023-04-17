@@ -1,0 +1,13 @@
+Enable audit logging:
+
+Edit the kube-apiserver manifest file, typically found at /etc/kubernetes/manifests/kube-apiserver.yaml, and add the following flags:
+
+--audit-log-path=/var/log/kubernetes/apiserver/audit.log
+--audit-log-maxage=30
+--audit-log-maxbackup=10
+--audit-log-maxsize=100
+
+
+Make sure the log directory exists:
+
+mkdir -p /var/log/kubernetes/apiserver/
