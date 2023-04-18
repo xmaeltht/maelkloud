@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  apache1:
+    image: "httpd:2.4"
+    ports:
+      - "8080:80"
+    volumes:
+      - ./html:/usr/local/apache2/htdocs/
+
+  apache2:
+    image: "httpd:latest"
+    ports:
+      - "8081:80"
+    volumes:
+      - ./html:/usr/local/apache2/htdocs/
+      
+  postgres:
+    image: "postgres:13"
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

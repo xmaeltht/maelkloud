@@ -1,0 +1,40 @@
+pipeline {
+  agent any
+
+  environment {
+    AWS_DEFAULT_REGION = 'us-east-1'
+    AWS_CREDENTIALS_ID = 'Credentials_AWS_ID' // Replace with the ID of the AWS credentials you added to Jenkins
+  }
+
+  stages {
+    stage('Checkout') {
+      steps {
+        git 'https://github.com/xmaeltht/maelkloud.git'
+      }
+    }
+
+    stage('Terraform Init') {
+      steps {
+        withCredentials([aws(credentialsId: "${AWS_CREDENTIALS_ID}", region: "${AWS_DEFAULT_REGION}")]) {
+          terraform init()
+        }
+      }
+    }
+
+    stage('Terraform Validate') {
+      steps {
+        withCredentials([aws(credentialsId: "${AWS_CREDENTIALS_ID}", region: "${AWS_DEFAULT_REGION}")]) {
+          terraform validate()
+        }
+      }
+    }
+
+    stage('Terraform Apply') {
+      steps {
+        withCredentials([aws(credentialsId: "${AWS_CREDENTIALS_ID}", region: "${AWS_DEFAULT_REGION}")]) {
+          terraform apply(autoApprove: true)
+        }
+      }
+    }
+  }
+}
