@@ -16,15 +16,17 @@ pipeline {
     stage('Terraform Init') {
       steps {
         withCredentials([aws(credentialsId: "${AWS_CREDENTIALS_ID}", region: "${AWS_DEFAULT_REGION}")]) {
-          terraform init()
+          sh 'terraform init'
         }
       }
     }
 
-    stage('Terraform Validate') {
+    stage('Terraform Fmt, Validate, and Plan') {
       steps {
         withCredentials([aws(credentialsId: "${AWS_CREDENTIALS_ID}", region: "${AWS_DEFAULT_REGION}")]) {
-          terraform validate()
+          sh 'terraform fmt'
+          sh 'terraform validate'
+          sh 'terraform plan'
         }
       }
     }
@@ -32,7 +34,7 @@ pipeline {
     stage('Terraform Apply') {
       steps {
         withCredentials([aws(credentialsId: "${AWS_CREDENTIALS_ID}", region: "${AWS_DEFAULT_REGION}")]) {
-          terraform apply(autoApprove: true)
+          sh 'terraform apply -auto-approve'
         }
       }
     }
