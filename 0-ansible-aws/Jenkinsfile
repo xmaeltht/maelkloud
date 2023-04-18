@@ -52,5 +52,15 @@ pipeline {
                 }
             }
         }
+
+        stage('Terraform Destroy') {
+            steps {
+                withCredentials([aws(credentialsId: "${AWS_CREDENTIALS_ID}", region: "${AWS_DEFAULT_REGION}")]) {
+                    dir('0-ansible-aws/') {
+                        sh 'terraform destroy -auto-approve'
+                    }
+                }
+            }
+        }
     }
 }
