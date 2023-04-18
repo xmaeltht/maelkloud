@@ -9,7 +9,7 @@ resource "aws_vpc" "ansible" {
   }
 }
 
-# Create an Internet Gateway and attach it to the VPC
+# Create an Internet Gateway and attach it to the VPC.
 resource "aws_internet_gateway" "ansible" {
   vpc_id = aws_vpc.ansible.id
 }
