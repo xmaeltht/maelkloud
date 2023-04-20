@@ -12,7 +12,7 @@ pipeline {
             steps {
                 checkout([
                     $class: 'GitSCM',
-                    branches: [[name: '*/main']], // Replace 'main' with the branch name you want to checkout
+                    branches: [[name: '*/kay']], // Replace 'main' with the branch name you want to checkout
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [],
                     submoduleCfg: [],
