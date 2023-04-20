@@ -30,7 +30,7 @@ variable "instance_type" {
 
 variable "key_name" {
   description = "The name of the keypair to use for SSH access"
-  default     = "mkloud"  # Use an existing keypair for SSH access
+  default     = "kay-va"  # Use an existing keypair for SSH access
 }
 
 variable "ansible_user" {
@@ -40,7 +40,7 @@ variable "ansible_user" {
 
 variable "ansible_ssh_private_key_file" {
   description = "The path to the private key file for Ansible SSH access"
-  default     = "/Users/mael/.ssh/mkloud.pem"
+  default     = "/Users/vagrant/.ssh/kay-va.pem"
 }
 
 variable "ansible_python_interpreter" {
