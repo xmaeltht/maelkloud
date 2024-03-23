@@ -1,0 +1,8 @@
+HA-app-terraform/project_1/.terraform
+HA-app-terraform/project_2/.terraform
+HA-app-terraform/project_1/.terraform.lock.hcl
+HA-app-terraform/project_2/.terraform.lock.hcl
+HA-app-terraform/project_1/.terraform.tfstate
+HA-app-terraform/project_2/.terraform.tfstate
+HA-app-terraform/project_1/.terraform.tfstate.backup
+HA-app-terraform/project_2/.terraform.tfstate.backup
