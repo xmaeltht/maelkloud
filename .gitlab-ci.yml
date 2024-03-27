@@ -1,0 +1,80 @@
+stages:
+  - validate
+  - plan
+  - apply
+  - destroy
+
+variables:
+  TF_STATE_NAME: terraform # Customize if needed
+
+validate-project_1:
+  stage: validate
+  image: hashicorp/terraform
+  script:
+    - cd HA-app-terraform/project_1
+    - terraform init
+    - terraform validate
+
+plan-project_1:
+  stage: plan
+  image: hashicorp/terraform
+  script:
+    - cd HA-app-terraform/project_1
+    - terraform init
+    - terraform plan -out=tfplan
+  artifacts:
+    paths:
+      - project_1/tfplan
+
+apply-project_1:
+  stage: apply
+  image: hashicorp/terraform
+  script:
+    - cd HA-app-terraform/project_1
+    - terraform init
+    - terraform apply -auto-approve tfplan
+
+destroy-project_1:
+  stage: destroy
+  image: hashicorp/terraform
+  script:
+    - cd HA-app-terraform/project_1
+    - terraform init
+    - terraform destroy -auto-approve
+  when: manual # Requires manual trigger
+
+validate-project_2:
+  stage: validate
+  image: hashicorp/terraform
+  script:
+    - cd HA-app-terraform/project_2
+    - terraform init
+    - terraform validate
+
+plan-project_2:
+  stage: plan
+  image: hashicorp/terraform
+  script:
+    - cd HA-app-terraform/project_2
+    - terraform init
+    - terraform plan -out=tfplan
+  artifacts:
+    paths:
+      - project_1/tfplan
+
+apply-project_2:
+  stage: apply
+  image: hashicorp/terraform
+  script:
+    - cd HA-app-terraform/project_2
+    - terraform init
+    - terraform apply -auto-approve tfplan
+
+destroy-project_2:
+  stage: destroy
+  image: hashicorp/terraform
+  script:
+    - cd HA-app-terraform/project_2
+    - terraform init
+    - terraform destroy -auto-approve
+  when: manual # Requires manual trigger
