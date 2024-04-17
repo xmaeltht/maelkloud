@@ -1,5 +1,3 @@
----
-
 # RUDOVIC TENDE
 
 **Email:** rudovic.tendesagouong@gmail.com  
@@ -82,7 +80,5 @@ May 2018 – April 2019
 - Red Hat Certified System Administrator (RHCSA)
 - Certified Scrum Master (CSM)
 - CompTIA Security+
-
----
 
 
